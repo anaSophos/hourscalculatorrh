@@ -9,6 +9,7 @@ export default function Home() {
   const [entrada, setEntrada] = useState('');
   const [saida, setSaida] = useState('');
   const [entradaorsaida, setEntradaorsaida] = useState('');
+  const [entradaorsaida2, setEntradaorsaida2] = useState('');
   const [tipoHora, setTipoHora] = useState('');
 
   function calcularSaida() {
@@ -22,14 +23,17 @@ export default function Home() {
       case '11h':
         horasTrabalho = 11;
         setEntradaorsaida('saída');
+        setEntradaorsaida2('entrada');
         break;
       case '35h':
         horasTrabalho = 35;
         setEntradaorsaida('saída');
+        setEntradaorsaida2('entrada');
         break;
       case 'Minutos Residuais':
         horasTrabalho = 10;
         setEntradaorsaida('entrada');
+        setEntradaorsaida2('saída');
         break;
       default:
         horasTrabalho = 0;
@@ -89,7 +93,7 @@ export default function Home() {
           disabled={tipoHora === '' || entrada === ''}
         />
 
-        <Result saida={saida} entrada={entrada} />
+        <Result result={saida} restriction={entrada} entradaoursaida={entradaorsaida2} />
       </div>
     </main>
   );
