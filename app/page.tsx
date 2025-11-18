@@ -87,6 +87,10 @@ export default function Home() {
             } else {
               setEntradaorsaida('');
             }
+            setSaida('');
+            setEntradaorsaida2('');
+            setEntradaorsaida3('');
+            setEntrada('');
           }}
           options={[
             { label: 'Selecione...', value: '' },
