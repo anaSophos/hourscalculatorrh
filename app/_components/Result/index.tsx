@@ -14,7 +14,7 @@ export default function Result({ result, restriction, entradaoursaida }: ResultP
       </p>
       <span className="font-bold">{result}</span>
       
-      <div className=" w-full mx-auto mt-2 h-20 p-2 rounded-md bg-red-100 text-center mt-4 flex flex-col gap-1">
+      <div className=" w-full mx-auto mt-2 h-auto p-2 rounded-md bg-red-100 text-center mt-4 flex flex-col gap-1">
         <p className="text-red-600 text-base">
           Evite registrar seu ponto:
         </p>
