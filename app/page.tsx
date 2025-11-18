@@ -10,6 +10,7 @@ export default function Home() {
   const [saida, setSaida] = useState('');
   const [entradaorsaida, setEntradaorsaida] = useState('');
   const [entradaorsaida2, setEntradaorsaida2] = useState('');
+  const [entradaorsaida3, setEntradaorsaida3] = useState('');
   const [tipoHora, setTipoHora] = useState('');
 
   function calcularSaida() {
@@ -39,12 +40,29 @@ export default function Home() {
         horasTrabalho = 0;
     }
 
-    entradaDate.setHours(entradaDate.getHours() + horasTrabalho);
+    if(tipoHora === "Minutos Residuais"){
+      entradaDate.setHours(entradaDate.getHours() + 9);
+      entradaDate.setMinutes(entradaDate.getMinutes() + 44);
+    }else{
+      entradaDate.setHours(entradaDate.getHours() + horasTrabalho);
+    }
 
     const dia = entradaDate.toLocaleDateString('pt-BR');
     const hora = entradaDate.toTimeString().slice(0, 5);
 
     setSaida(`${dia} às ${hora}`);
+
+    if (tipoHora === "Minutos Residuais") {
+      const entradaMais10 = new Date(entradaDate);
+      entradaMais10.setMinutes(entradaMais10.getMinutes() + 11);
+      const horaR1 = entradaMais10.toTimeString().slice(0, 5);
+      const entradaMais20 = new Date(entradaDate);
+      entradaMais20.setMinutes(entradaMais20.getMinutes() + 20);
+      const horaR2 = entradaMais20.toTimeString().slice(0, 5);
+      setEntradaorsaida3(`Entre ${horaR1} e ${horaR2}`);
+    } else {
+      setEntradaorsaida3("Antes do horário previsto");
+    }
   }
 
   return (
@@ -93,7 +111,7 @@ export default function Home() {
           disabled={tipoHora === '' || entrada === ''}
         />
 
-        <Result result={saida} restriction={entrada} entradaoursaida={entradaorsaida2} />
+        <Result result={saida} restriction={entradaorsaida3} entradaoursaida={entradaorsaida2} />
       </div>
     </main>
   );

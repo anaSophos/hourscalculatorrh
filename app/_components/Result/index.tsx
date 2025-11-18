@@ -14,11 +14,11 @@ export default function Result({ result, restriction, entradaoursaida }: ResultP
       </p>
       <span className="font-bold">{result}</span>
       
-      <div className=" w-full mx-auto mt-2 h-20 p-2 rounded-md bg-red-100 text-center mt-4 text-base flex flex-col gap-1">
-        <p className="text-red-600">
-          Evite registrar seu ponto entre:
+      <div className=" w-full mx-auto mt-2 h-20 p-2 rounded-md bg-red-100 text-center mt-4 flex flex-col gap-1">
+        <p className="text-red-600 text-base">
+          Evite registrar seu ponto:
         </p>
-        <span className="font-bold text-red-600">{restriction}</span>
+        <span className="font-bold text-red-600 text-lg">{restriction}</span>
       </div>
     </div>
   );
