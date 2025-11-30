@@ -42,7 +42,12 @@ export default function Home() {
 
     if(tipoHora === "Minutos Residuais"){
       entradaDate.setHours(entradaDate.getHours() + 9);
-      entradaDate.setMinutes(entradaDate.getMinutes() + 44);
+      if (entradaDate.getDay() === 1) {
+        entradaDate.setMinutes(entradaDate.getMinutes() + 50);
+      } else {
+        entradaDate.setMinutes(entradaDate.getMinutes() + 48);
+      }
+      //entradaDate.setMinutes(entradaDate.getMinutes() + 48);
     }else{
       entradaDate.setHours(entradaDate.getHours() + horasTrabalho);
     }
@@ -66,8 +71,8 @@ export default function Home() {
   }
 
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
-      <div className="bg-white p-6 rounded-2xl shadow-md w-full max-w-sm">
+    <main className="flex flex-col items-center justify-center min-h-screen bg-white p-6">
+      <div className="bg-white p-6 w-full max-w-sm">
 
         <h1 className="text-2xl font-semibold text-center mb-4">
           Calculadora de Ponto
