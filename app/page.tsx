@@ -115,7 +115,7 @@ export default function Home() {
         />
 
         <Button
-          text="Calcular horário final"
+          text="Calcular"
           onClick={calcularSaida}
           disabled={tipoHora === '' || entrada === ''}
         />
